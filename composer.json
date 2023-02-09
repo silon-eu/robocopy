@@ -1,0 +1,7 @@
+{
+  "name": "silon-eu/robocopy",
+  "description": "PHP wrapper for Robocopy",
+  "require": {
+    "php": ">=8.1"
+  }
+}
