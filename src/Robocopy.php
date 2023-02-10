@@ -37,7 +37,7 @@ class Robocopy
         // normalize input to array
         if (is_string($fileNames)) { $fileNames = [$fileNames]; }
 
-        $fNames = '"'.implode('","',$fileNames).'"';
+        $fNames = '"'.implode('" "',$fileNames).'"';
         $this->lastCommand = "robocopy \"$this->sourceBasePath\" \"$this->targetBasePath\" $fNames $additionalOptions";
         exec($this->lastCommand,$this->lastOutput, $this->lastResultCode);
 
@@ -74,7 +74,7 @@ class Robocopy
      */
     public function setTargetBasePath(string $targetBasePath): Robocopy
     {
-        $this->targetBasePath = $targetBasePath;
+        $this->targetBasePath = rtrim($targetBasePath,'\\/');
         return $this;
     }
 
@@ -92,7 +92,7 @@ class Robocopy
      */
     public function setSourceBasePath(string $sourceBasePath): Robocopy
     {
-        $this->sourceBasePath = $sourceBasePath;
+        $this->sourceBasePath = rtrim($sourceBasePath,'\\/');
         return $this;
     }
 
