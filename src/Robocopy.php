@@ -32,7 +32,7 @@ class Robocopy
      * @return bool
      * @throws RobocopyException
      */
-    public function copy(string|array $fileNames, ?string $additionalOptions): bool
+    public function copy(string|array $fileNames, ?string $additionalOptions = null): bool
     {
         // normalize input to array
         if (is_string($fileNames)) { $fileNames = [$fileNames]; }
